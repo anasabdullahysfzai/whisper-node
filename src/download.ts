@@ -25,7 +25,7 @@ const MODELS_LIST = [
 
 
 const askModel = async () => {
-  const answer = await readlineSync.question(`\n[whisper-node] Enter model name (e.g. 'base.en') or 'cancel' to exit\n(ENTER for base.en): `)
+  const answer = process.env.WHISPER_MODEL_NAME ?? await readlineSync.question(`\n[whisper-node] Enter model name (e.g. 'base.en') or 'cancel' to exit\n(ENTER for base.en): `)
 
   if (answer === "cancel") {
     console.log("[whisper-node] Exiting model downloader. Run again with: 'npx whisper-node download'");
